@@ -1,6 +1,10 @@
 calendarUI = function (id) {
   ns = NS(id)
-  calendarOutput(ns("calendar"))
+  div(class="w-full flex justify-center",
+    div(class="md:w-2/3 overflow-x-auto shadow-md sm:rounded-lg",
+      calendarOutput(ns("calendar"))
+  )
+  )
 }
 
 colors = data.frame(

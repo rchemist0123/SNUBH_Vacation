@@ -3,7 +3,7 @@ calendarUI = function (id) {
   div(class="w-full flex justify-center",
     div(class="md:w-2/3 overflow-x-auto shadow-md sm:rounded-lg",
       calendarOutput(ns("calendar"))
-  )
+    )
   )
 }
 
@@ -33,13 +33,13 @@ calendarServer = function (id, user_dt){
       #             ifelse(type == "반차(오전)", sprintf("%s 13:00:00",start), start))]
       
       toastui::calendar(a, navigation = T, defaultDate = Sys.Date(),
-                        narrowWeekend=T, isReadOnly = T)
+                        narrowWeekend=T, isReadOnly = F)
     })
 
-    # observeEvent(input$calendar_delete,{
-    #   str(input$calendar_delete)
-    #   cal_proxy_delete("calendar", input$my_calendar_delete)
-    # })
+    observeEvent(input$calendar_delete,{
+      str(input$calendar_delete)
+      cal_proxy_delete("calendar", input$my_calendar_delete)
+    })
 
   })
 }
